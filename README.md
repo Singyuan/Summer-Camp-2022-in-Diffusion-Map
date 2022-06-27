@@ -2,10 +2,10 @@
 ## Outline
 |#|Topic|Demo|Contents|TODO|
 |-|-|-|-|-|
-|0|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>|Arnoldi iteration|
-|1|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>|
-|2|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|bandwidth and recover manifold|
-|3|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|
+|<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>|Arnoldi iteration|
+|<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>|
+|<a href="#difffusion-map-on-simulation-data">2</a>|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|
+|<a href="#difffusion-map-on-real-data">3</a>|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|
 |4|Clustering & Classification|[Link](demo/Clustering_Classification.mlx)|<ul><li>Clustering</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|
 
 ## Eigen Decomposition & SVD
@@ -26,6 +26,17 @@
 - Know different type of distance, e.g. mahalanobis distance. Please refer to [Malik, Shen, Wu & Wu, (2018)](https://arxiv.org/abs/1804.02811).
 ![](https://i.imgur.com/ZK67jTJ.png)
 
+## Difffusion Map on Simulation Data
+- Suppose a dataset belongs to a $d$-dimensional manifold $\mathcal{M}$, which is in ambient space $\mathbb{R}^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
+![](https://i.imgur.com/HzzK9wk.png)
+- Different type of torus, different type of embedding figure.
+![](https://i.imgur.com/oB79jjB.png)
+- Preserve topological properties, e.g. geodesic distance and diffusion distance. Please refer to [A. Singer, H.-T. Wu, (2011)](https://arxiv.org/abs/1102.0075) for more detail.
+![](https://i.imgur.com/tCtVJbq.png)
+
+## Difffusion Map on Real Data
+- The channel of this EEG is Fpz-Cz, which sampled at 100 Hz.
+- The sleep stages are reduced to 5 stages, Awake, REM, N1, N2, N3.
 
 ## Data
 In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `FakeECG.mat`.
