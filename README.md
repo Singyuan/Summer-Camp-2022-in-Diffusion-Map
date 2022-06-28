@@ -3,13 +3,13 @@
 There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ matrix. After apply diffusion map, we will reduce the dimension from $p$ to $m$. Hence, the data is compressed in $p\times m$ matrix.
 
 ## Outline
-|#|Topic|Demo|Contents|TODO|
-|-|-|-|-|-|
-|<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>||
-|<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>|
-|<a href="#difffusion-map-on-simulation-data">2</a>|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|
-|<a href="#difffusion-map-on-real-data">3</a>|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|
-|4|Clustering & Classification|[Link](demo/Clustering_Classification.mlx)|<ul><li>Clustering</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|
+|#|Topic|Demo|Contents|TODO|exp|
+|-|-|-|-|-|-|
+|<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>|||
+|<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>||
+|<a href="#difffusion-map-on-simulation-data">2</a>|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
+|<a href="#difffusion-map-on-real-data">3</a>|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
+|4|Clustering & Classification|[Link](demo/Clustering_Classification.mlx)|<ul><li>Clustering</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[KFold](exp/Iris_KFold.m)</li></ul>|
 
 ## Eigen Decomposition & SVD
 - How to apply eigen-decomposition in MATLAB. 
@@ -58,6 +58,8 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - The sleep stages are reduced to 5 stages, Awake, REM, N1, N2, N3.
 
 ## Code reference
+1. `src/Lazykmeans.m` is modified from Kai (2021), Improved Nystrom Kernel Low-rank Approximation ( https://www.mathworks.com/matlabcentral/fileexchange/38422-improved-nystrom-kernel-low-rank-approximation ), MATLAB Central File Exchange.
+2. `src/cluster_acc.m` is from Dong Dong (2022). clustering accuracy ( https://www.mathworks.com/matlabcentral/fileexchange/77452-clustering-accuracy ), MATLAB Central File Exchange. Retrieved June 27, 2022.
 
 ## Material
 [Hackmd version](https://hackmd.io/@singyuan/SJ5xrFwq9)
