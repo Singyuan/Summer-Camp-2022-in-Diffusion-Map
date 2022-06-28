@@ -37,7 +37,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - Different type of torus, different type of embedding figure.
 ![](https://i.imgur.com/oB79jjB.png)
 - Preserve topological properties, e.g. geodesic distance and diffusion distance. Please refer to [A. Singer, H.-T. Wu, (2011)](https://arxiv.org/abs/1102.0075) for more detail.
-![](https://i.imgur.com/tCtVJbq.png)
+![](https://i.imgur.com/JFEHoPU.png)
 
 ## Diffusion Map on Real Data
 ### Two useful techniques
