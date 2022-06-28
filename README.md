@@ -9,7 +9,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 |<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>||
 |<a href="#diffusion-map-on-simulation-data">2</a>|Diffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
 |<a href="#diffusion-map-on-real-data">3</a>|Diffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
-|<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/Clustering_Classification.mlx)|<ul><li>Clustering</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[KFold](exp/Iris_KFold.m)</li></ul>|
+|<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/clustering_classification.mlx)|<ul><li>Clustering (k-means)</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[KFold](exp/Iris_KFold.m)</li></ul>|
 
 ## Eigen Decomposition & SVD
 - How to apply eigen-decomposition in MATLAB. 
@@ -54,8 +54,19 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
   - Please refer to [Zelnik-Manor & Perona, (2005)](https://proceedings.neurips.cc/paper/2004/file/40173ea48d9567f1f393b20c855bb40b-Paper.pdf) for more detail.
 
 ## Clustering & Classification
+### Classifier
 - Clustering: k-means is unsupervised learning.
 - Classification: SVM is supervised learning.
+  - There are two parameters, box constraint and kernel scale.
+![](https://i.imgur.com/4GBbAUs.png)
+
+
+### Evaluation
+  - Metric: recall, precision, F1 score
+![](https://i.imgur.com/IB8IzOU.png)
+
+  - Evaluation on k-folds cross validation.
+![](https://i.imgur.com/BUxLuNr.png)
 
 ## Material
 [Hackmd version](https://hackmd.io/@singyuan/SJ5xrFwq9)
@@ -79,7 +90,7 @@ In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `
 
 ## Code references
 1. `src/Lazykmeans.m` is modified from Kai (2021), Improved Nystrom Kernel Low-rank Approximation ( https://www.mathworks.com/matlabcentral/fileexchange/38422-improved-nystrom-kernel-low-rank-approximation ), MATLAB Central File Exchange.
-2. `src/cluster_acc.m` is from Dong Dong (2022). clustering accuracy ( https://www.mathworks.com/matlabcentral/fileexchange/77452-clustering-accuracy ), MATLAB Central File Exchange. Retrieved June 27, 2022.
+2. `src/cluster_acc.m` is from Dong Dong (2022). clustering accuracy ( https://www.mathworks.com/matlabcentral/fileexchange/77452-clustering-accuracy ), MATLAB Central File Exchange.
 
 ## References 
 _Random Arrangement_
