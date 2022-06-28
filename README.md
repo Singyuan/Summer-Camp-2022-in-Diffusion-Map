@@ -1,4 +1,7 @@
 # Summer Camp 2022 in Diffusion Map
+## Convention
+There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ matrix. After apply diffusion map, we will reduce the dimension from $p$ to $m$. Hence, the data is compressed in $p\times m$ matrix.
+
 ## Outline
 |#|Topic|Demo|Contents|TODO|
 |-|-|-|-|-|
@@ -27,7 +30,8 @@
 ![](https://i.imgur.com/ZK67jTJ.png)
 
 ## Difffusion Map on Simulation Data
-- Suppose a dataset belongs to a $d$-dimensional manifold $\mathcal{M}$, which is in ambient space $\mathbb{R}^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
+- In practice, since $K=D^{-1}W$ is not symmetric, we will use symmetric matrix $D^{-1/2}WD^{-1/2}$ which is similar to $K$. Please refer to [J. Banks, J. Garza-Vargas, A. Kulkarni, N. Srivastava, (2019)](https://arxiv.org/abs/1912.08805) for more detail of time complixity of eigen-decomposition of symetric matrix.
+- Suppose a dataset belongs to a $d$-dimensional manifold $\rm M$, which is in ambient space $\rm R^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
 ![](https://i.imgur.com/HzzK9wk.png)
 - Different type of torus, different type of embedding figure.
 ![](https://i.imgur.com/oB79jjB.png)
@@ -35,6 +39,20 @@
 ![](https://i.imgur.com/tCtVJbq.png)
 
 ## Difffusion Map on Real Data
+### Two useful techniques
+- **Roeseland**:
+  - In order to accelerate the algorithm, this algorithm is based on SVD.
+  - The default number landmark is chosen $\sqrt{n}$.
+  - In my code, I apply few steps `k-means` to choose landmark.
+  - Please refer to [Shen and Wu, (2019)](https://arxiv.org/abs/2001.00801) for more detail.
+![](https://i.imgur.com/3oqs0uw.png)
+
+
+- **Self-tune**:
+  - The affinity matrix is created by $k(x_i,x_j)=\exp\left(\frac{\|x_i-x_j\|^2}{\epsilon_i\epsilon_j}\right)$.
+  - Please refer to [Zelnik-Manor & Perona, (2005)](https://proceedings.neurips.cc/paper/2004/file/40173ea48d9567f1f393b20c855bb40b-Paper.pdf) for more detail.
+
+### EEG siganls
 - The channel of this EEG is Fpz-Cz, which sampled at 100 Hz.
 - The sleep stages are reduced to 5 stages, Awake, REM, N1, N2, N3.
 
