@@ -16,8 +16,8 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - Reduce time complexicity.
 - Know `eigs` and `svd`.
 - the costs of eigen-decomposition and SVD are as
-  - $9n^3$ if matrix is with size $n\times n$
-  - $14mn^2+8n^3$ if matrix is with size $m\times n$ where $m\geq n$.
+  - eigen-decomposition: $9n^3$ if matrix is with size $n\times n$
+  - SVD: $14mn^2+8n^3$ if matrix is with size $m\times n$ where $m\geq n$.
   - Please refer to [Nicholas J. Higham, (2008)](https://books.google.com.tw/books/about/Functions_of_Matrices.html?id=S6gpNn1JmbgC&redir_esc=y) for more detail.
 ![](https://i.imgur.com/L0TXL2G.png)
 
@@ -31,7 +31,8 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 
 ## Difffusion Map on Simulation Data
 - In practice, since $K=D^{-1}W$ is not symmetric, we will use symmetric matrix $D^{-1/2}WD^{-1/2}$ which is similar to $K$. Please refer to [J. Banks, J. Garza-Vargas, A. Kulkarni, N. Srivastava, (2019)](https://arxiv.org/abs/1912.08805) for more detail of time complixity of eigen-decomposition of symetric matrix.
-- Suppose a dataset belongs to a $d$-dimensional manifold $\rm M$, which is in ambient space $\rm R^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
+- In practice, we use `knnsearch` to construct affinity instead of `pdist` because `knnsearch` is based on KD algorithm which time complexity is $O(n\log(n))$. Moreover, time complexity of `pdist` is $O(n^2)$.
+- Suppose a dataset belongs to a $d$-dimensional manifold $M$, which is in ambient space $R^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
 ![](https://i.imgur.com/HzzK9wk.png)
 - Different type of torus, different type of embedding figure.
 ![](https://i.imgur.com/oB79jjB.png)
@@ -56,6 +57,11 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - The channel of this EEG is Fpz-Cz, which sampled at 100 Hz.
 - The sleep stages are reduced to 5 stages, Awake, REM, N1, N2, N3.
 
+## Code reference
+
+## Material
+[Hackmd version](https://hackmd.io/@singyuan/SJ5xrFwq9)
+
 ## Data
 In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `FakeECG.mat`.
 1. Sphere data `UniSphere.mat`: There are 998 sphere points in (x, y, z)-coordinate.
@@ -72,3 +78,5 @@ In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `
 > This dataset is generated and modified from David Smith (2022). Klein Bottle ( https://www.mathworks.com/matlabcentral/fileexchange/5880-klein-bottle ), MATLAB Central File Exchange.
 7. MNIST dataset: The database contains 5000 digital images with size 28x28. Each class contains 400-600 images.
 > This dataset is randomly chosen from [here](https://github.com/sunsided/mnist-matlab).
+
+## Reference
