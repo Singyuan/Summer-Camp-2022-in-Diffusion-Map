@@ -7,8 +7,8 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 |-|-|-|-|-|-|
 |<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>|||
 |<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>||
-|<a href="#difffusion-map-on-simulation-data">2</a>|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
-|<a href="#difffusion-map-on-real-data">3</a>|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
+|<a href="#diffusion-map-on-simulation-data">2</a>|Diffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
+|<a href="#diffusion-map-on-real-data">3</a>|Diffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
 |<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/Clustering_Classification.mlx)|<ul><li>Clustering</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[KFold](exp/Iris_KFold.m)</li></ul>|
 
 ## Eigen Decomposition & SVD
@@ -29,7 +29,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - Know different type of distance, e.g. mahalanobis distance. Please refer to [Malik, Shen, Wu & Wu, (2018)](https://arxiv.org/abs/1804.02811).
 ![](https://i.imgur.com/ZK67jTJ.png)
 
-## Difffusion Map on Simulation Data
+## Diffusion Map on Simulation Data
 - In practice, since $K=D^{-1}W$ is not symmetric, we will use symmetric matrix $D^{-1/2}WD^{-1/2}$ which is similar to $K$. Please refer to [J. Banks, J. Garza-Vargas, A. Kulkarni, N. Srivastava, (2019)](https://arxiv.org/abs/1912.08805) for more detail of time complixity of eigen-decomposition of symetric matrix.
 - In practice, we use `knnsearch` to construct affinity instead of `pdist` because `knnsearch` is based on KD algorithm which time complexity is $O(n\log(n))$. Moreover, time complexity of `pdist` is $O(n^2)$.
 - Suppose a dataset belongs to a $d$-dimensional manifold $M$, which is in ambient space $R^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
@@ -39,7 +39,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - Preserve topological properties, e.g. geodesic distance and diffusion distance. Please refer to [A. Singer, H.-T. Wu, (2011)](https://arxiv.org/abs/1102.0075) for more detail.
 ![](https://i.imgur.com/tCtVJbq.png)
 
-## Difffusion Map on Real Data
+## Diffusion Map on Real Data
 ### Two useful techniques
 - **Roeseland**:
   - In order to accelerate the algorithm, this algorithm is based on SVD.
