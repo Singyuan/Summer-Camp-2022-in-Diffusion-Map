@@ -5,7 +5,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 ## Outline
 |#|Topic|Demo|Contents|TODO|
 |-|-|-|-|-|
-|<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>|Arnoldi iteration|
+|<a href="#eigen-decomposition--svd">0</a>|Eigen Decomposition & SVD|[Link](demo/ED_SVD.mlx)|<ul><li>eigen-decomposition</li><li>SVD</li><li>sparse matrix</li><li>low rank approximation</li></ul>||
 |<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>|
 |<a href="#difffusion-map-on-simulation-data">2</a>|Difffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|
 |<a href="#difffusion-map-on-real-data">3</a>|Difffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|
@@ -79,4 +79,16 @@ In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `
 7. MNIST dataset: The database contains 5000 digital images with size 28x28. Each class contains 400-600 images.
 > This dataset is randomly chosen from [here](https://github.com/sunsided/mnist-matlab).
 
-## Reference
+## References 
+_Random Arrangement_
+1. J. de la Porte, B. M. Herbst, W. Hereman and S. J. van der Walt, _An introduction to diffusion maps_, **(2008)**.
+2. J. Wang, _Geometric Structure of High-Dimensional Data and Dimensionality Reduction_.
+3. L. Zelnik-Manor and P. Perona, _Self-Tuning Spectral Clustering_, **(2005)**.
+4. C. Shen and H.-T. Wu, _Scalability and robustness of spectral embedding: landmark diffusion is all you need_, **(2019)**.
+5. J. Malik, C. Shen, H.-T. Wu and N. Wu, _Connecting Dots -- from Local Covariance to Empirical Intrinsic Geometry and Locally Linear Embedding_, **(2018)**.
+6. A. Singer and H.-T. Wu, _Orientability and diffusion maps_, **(2011)**.
+7. R. R. Lederman, R Talmon, H.-T. Wu, Y.-L. Lo and R. R. Coifman, _Alternating diffusion for common manifold learning with application to sleep stage assessment_, **(2015)**.
+8. R. R. Coifman and S. Lafon, _Diffusion Map_, **(2006)**.
+9. A. Singer, _From graph to manifold Laplacian: The convergence rate_, **(2006)**.
+10. A. Singer and H.-T. Wu, _Vector Diffusion Maps and the Connection Laplacian_, **(2011)**.
+11. Y.-T. Lin, J. Malik and H.-T. Wu, _Wave-shape oscillatory model for nonstationary periodic time series analysis_, **(2021)**.
