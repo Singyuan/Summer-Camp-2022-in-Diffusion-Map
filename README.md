@@ -1,6 +1,6 @@
 # Summer Camp 2022 in Diffusion Map
 ## Convention
-There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ matrix. After apply diffusion map, we will reduce the dimension from $p$ to $m$. Hence, the data is compressed in $p\times m$ matrix.
+There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ matrix. After apply diffusion map, we will reduce the dimension from $p$ to $m$. Hence, the data is compressed in $n\times m$ matrix.
 
 ## Outline
 |#|Topic|Demo|Contents|TODO|exp|
@@ -9,7 +9,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 |<a href="#transition-matrix--difffusion-map">1</a>|Transition Matrix & Difffusion Map|[Link](demo/Affinity_Transition.mlx)|<ul><li>Transition matrix</li><li>Spectral of transition matrix</li><li>Kernel bandwidth and outlier</li></ul>|<ul><li>ev of all ones matrix</li><li>ev of all identity matrix</li><li>Mahalanobis distance</li></ul>||
 |<a href="#diffusion-map-on-simulation-data">2</a>|Diffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
 |<a href="#diffusion-map-on-real-data">3</a>|Diffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
-|<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/clustering_classification.mlx)|<ul><li>Clustering (k-means)</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[KFold](exp/Iris_KFold.m)</li></ul>|
+|<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/clustering_classification.mlx)|<ul><li>Clustering (k-means)</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[K-Fold](exp/Iris_KFold.m)</li></ul>|
 
 ## Eigen Decomposition & SVD
 - How to apply eigen-decomposition in MATLAB. 
@@ -57,8 +57,11 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 ### Classifier
 - Clustering: k-means is unsupervised learning.
 - Classification: SVM is supervised learning.
-  - There are two parameters, box constraint and kernel scale.
+  - There are two parameters, box constraint and kernel scale. Note that kernel scale is $\gamma$ in this equation $k(x,y)=\exp\left(-\gamma\|x-y\|^2\right)$.
 ![](https://i.imgur.com/4GBbAUs.png)
+  - Usually, we use $\log$-scale to fine tune these two parameters.
+![](https://i.imgur.com/h2YJj0Y.png)
+
 
 
 ### Evaluation
@@ -67,6 +70,14 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 
   - Evaluation on k-folds cross validation.
 ![](https://i.imgur.com/BUxLuNr.png)
+
+## Appendix for methodology
+There are many method to dimension reduction. Diffusion map is just one of them. Hence, you could compare diffusion map and other methods. Feel free to use the data in my folder `data`.
+- Diffusion map
+- PCA (kernel PCA)
+- Locally linear embedding (LLE)
+- t-SNE
+![](https://i.imgur.com/c6TY1Tp.png)
 
 ## Material
 [Hackmd version](https://hackmd.io/@singyuan/SJ5xrFwq9)
