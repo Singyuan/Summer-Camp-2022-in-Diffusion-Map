@@ -18,7 +18,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 - the costs of eigen-decomposition and SVD are as
   - eigen-decomposition: $9n^3$ if matrix is with size $n\times n$
   - SVD: $14mn^2+8n^3$ if matrix is with size $m\times n$ where $m\geq n$.
-  - Please refer to [Nicholas J. Higham, (2008)](https://books.google.com.tw/books/about/Functions_of_Matrices.html?id=S6gpNn1JmbgC&redir_esc=y) for more detail.
+  - Please refer to Nicholas J. Higham, *Functions of Matrices: Theory and Computation*, (2008) for more detail.
 ![](https://i.imgur.com/L0TXL2G.png)
 
 ## Transition Matrix & Difffusion Map
@@ -72,7 +72,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $p\times n$ 
 [Hackmd version](https://hackmd.io/@singyuan/SJ5xrFwq9)
 
 ## Data
-In the folder `data`, there are three data: `UniSphere.mat`, `irismat.mat` and `FakeECG.mat`.
+The data source in folder `data` is introduced as following.
 1. Sphere data `UniSphere.mat`: There are 998 sphere points in (x, y, z)-coordinate.
 > This is generated from Brian Z Bentz (2021), ( https://www.mathworks.com/matlabcentral/fileexchange/57877-mysphere-n ), MATLAB Central File Exchange.
 2. Iris data `irismat.mat`: There are 3 categories of flowers and each categories contains 50 data. Each flower data has 4 features.

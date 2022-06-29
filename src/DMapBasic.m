@@ -16,6 +16,7 @@ if nargin == 3
     dista(:, 1) = [];
     disp('(info) No self-loop')
     bandw = quantile(dista(:, end), 0.5);
+    disp(['(info) The bandwidth is chosen as ', num2str(bandw), '.'])
 else
     [idx, dista]= knnsearch(X, X, 'k', NN+1);
     idx(:, 1) = []; % no self-loop
@@ -33,7 +34,7 @@ end
 numnbh = sum(~isinf(dista), 2);
 isoidx = find(numnbh == 0);
 if ~isempty(isoidx)
-    disp('(warning) There are isolated points.')
+    disp('(warning) There is isolated points.')
     for i = 1:numel(isoidx)
         [tempidx, tempdist] = knnsearch(X, X(isoidx(i), :), 'k', 4);
         idx(isoidx(i), 1:3) =  tempidx(2:4); % no self-loop
