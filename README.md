@@ -36,11 +36,11 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ 
 
 <details>
 <summary><b>Click me to see something scary</b></summary>
-Let $\{x_i\}_{i=1}^n\subset \mathcal{M}$. Let the kernel matrix $W_{ij}=k_\epsilon(x_i,x_j)$. The degree matrix is defined as $D_{ii}=\sum_{j=1}^nW_{ij}$. Then, the **(negative)** graph Laplacian operator is defined as
+Let $\{x_i\}_{i=1}^n\subset \mathcal{M}$. Let the kernel matrix $W_{ij}=k_\epsilon(x_i,x_j)$. The degree matrix is defined as $D_{ii}=\sum_jW_{ij}$. Then, the (negative) graph Laplacian operator is defined as
 $$L=\frac{D^{-1}W-I}{\epsilon^2}$$
-In [Coifman and Lafon (2006)](https://www.sciencedirect.com/science/article/pii/S1063520306000546?ref=pdf_download&fr=RR-2&rr=723831845a7b6a96) and In [Singer (2006)](https://www.sciencedirect.com/science/article/pii/S1063520306000510), they showed the bias term and variance term, respectively.  Given "normalized" kernel, $m_0=1$, the graph Laplacian operator is approximated as follows,
+In <a href="https://www.sciencedirect.com/science/article/pii/S1063520306000546?ref=pdf_download&fr=RR-2&rr=723831845a7b6a96">Coifman and Lafon (2006)</a> and <a href="https://www.sciencedirect.com/science/article/pii/S1063520306000510">Singer (2006)</a>, they showed the bias term and variance term, respectively.  Given "normalized" kernel, $m_0=1$, the graph Laplacian operator is approximated as follows,
 $$\sum_{j=1}^{n} L_{i j} f\left(x_{j}\right)=\frac{m_2}{2d}\Delta f\left(x_{i}\right)+O\left(\frac{\sqrt{\log(n)}}{n^{1 / 2} \epsilon^{d/2+1}}\right)+O(\epsilon).$$
-> This paper give the lower bound of $\epsilon$. That is, if the dataset is finite, the bandwidth cannot be approach to zero. The relation between $n$ and $\epsilon$ can be seem that $n^{1/2}\epsilon^{d/2+1}$ is constant. Actually, it is because there must be enough number of data points in the kernel bandwidth.
+<a href="https://www.sciencedirect.com/science/article/pii/S1063520306000510">Singer (2006)</a> gives the lower bound of $\epsilon$. That is, if the dataset is finite, the bandwidth cannot be approach to zero. Actually, it is because there must be enough number of data points in the kernel bandwidth.
 </details>
 
 ## Diffusion Map on Simulation Data
