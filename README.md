@@ -22,12 +22,26 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ 
 ![](https://i.imgur.com/L0TXL2G.png)
 
 ## Transition Matrix & Difffusion Map
-- Apply diffusion map step by step: distance matrix -> affinity matrix -> transition matrix -> eigen-decomposition.
+- Apply diffusion map step by step:
+  1. distance matrix
+  2. affinity matrix $W_{ij}=\exp\left(-\frac{\|x_i-x_j\|^2}{\epsilon^2}\right)$
+  3. transition matrix $K=D^{-1}W$ where diagonal matrix $D_{ii}=\sum_jW_{ij}$
+  4. Eigen-decomposition of $K$ is $U$, _i.e._ $KU=US$ where $S_{ii}=\lambda_i$
+  5. dimension reduction by largest $m$ eigenvector $U'=\left[u_2, u_2, \cdots,u_{m+1}\right]$
 - Tune bandwidth to know when the outliers occur.
 - What happen to transition matrix if the bandwidth is too small. What is eigenvalue and eigenvector of identity matrix.
 - What happen to transition matrix if the bandwidth is too large. What is eigenvalue and eigenvector of all ones matrix.
 - Know different type of distance, e.g. mahalanobis distance. Please refer to [Malik, Shen, Wu & Wu, (2018)](https://arxiv.org/abs/1804.02811).
 ![](https://i.imgur.com/ZK67jTJ.png)
+
+<details>
+<summary><b>Click me to see something scary</b></summary>
+Let $\{x_i\}_{i=1}^n\subset \mathcal{M}$. Let the kernel matrix $W_{ij}=k_\epsilon(x_i,x_j)$. The degree matrix is defined as $D_{ii}=\sum_{j=1}^nW_{ij}$. Then, the **(negative)** graph Laplacian operator is defined as
+$$L=\frac{D^{-1}W-I}{\epsilon^2}$$
+In [Coifman and Lafon (2006)](https://www.sciencedirect.com/science/article/pii/S1063520306000546?ref=pdf_download&fr=RR-2&rr=723831845a7b6a96) and In [Singer (2006)](https://www.sciencedirect.com/science/article/pii/S1063520306000510), they showed the bias term and variance term, respectively.  Given "normalized" kernel, $m_0=1$, the graph Laplacian operator is approximated as follows,
+$$\sum_{j=1}^{n} L_{i j} f\left(x_{j}\right)=\frac{m_2}{2d}\Delta f\left(x_{i}\right)+O\left(\frac{\sqrt{\log(n)}}{n^{1 / 2} \epsilon^{d/2+1}}\right)+O(\epsilon).$$
+> This paper give the lower bound of $\epsilon$. That is, if the dataset is finite, the bandwidth cannot be approach to zero. The relation between $n$ and $\epsilon$ can be seem that $n^{1/2}\epsilon^{d/2+1}$ is constant. Actually, it is because there must be enough number of data points in the kernel bandwidth.
+</details>
 
 ## Diffusion Map on Simulation Data
 - In practice, since $K=D^{-1}W$ is not symmetric, we will use symmetric matrix $D^{-1/2}WD^{-1/2}$ which is similar to $K$. Please refer to [J. Banks, J. Garza-Vargas, A. Kulkarni, N. Srivastava, (2019)](https://arxiv.org/abs/1912.08805) for more detail of time complixity of eigen-decomposition of symetric matrix.
@@ -40,9 +54,9 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ 
 ![](https://i.imgur.com/JFEHoPU.png)
 
 <details>
-  <summary>Click me to see comparison with PCA</summary>
+  <summary><b>Click me to see comparison with PCA</b></summary>
   <ol>
-  PCA is linear dimension reduction method, so it could not straighten the spring, Hence, PCA could recover the geodesic distance.
+  PCA is linear dimension reduction method, so it could not straighten the spring. Hence, PCA could recover the geodesic distance.
   
   ![](https://i.imgur.com/K9Lm2ng.png)
   </ol>
