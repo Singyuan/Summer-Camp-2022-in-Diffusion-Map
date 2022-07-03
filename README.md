@@ -45,7 +45,7 @@ $$\sum_{j=1}^{n} L_{i j} f\left(x_{j}\right)=\frac{m_2}{2d}\Delta f\left(x_{i}\r
 
 ## Diffusion Map on Simulation Data
 - In practice, since $K=D^{-1}W$ is not symmetric, we will use symmetric matrix $D^{-1/2}WD^{-1/2}$ which is similar to $K$. Please refer to [J. Banks, J. Garza-Vargas, A. Kulkarni, N. Srivastava, (2019)](https://arxiv.org/abs/1912.08805) for more detail of time complixity of eigen-decomposition of symetric matrix.
-- In practice, we use `knnsearch` to construct affinity instead of `pdist` because `knnsearch` is based on KD algorithm which time complexity is $O(n\log(n))$. Moreover, time complexity of `pdist` is $O(n^2)$.
+- In practice, we use `knnsearch` to construct affinity instead of `pdist` because `knnsearch` is based on KD algorithm which time complexity is $O(nk\log(k))$. Moreover, time complexity of `pdist` and sort is $O(n^2\log(n))$.
 - Suppose a dataset belongs to a $d$-dimensional manifold $M$, which is in ambient space $R^p$. Diffusion map reduce the dimension $p$ to dimension $m$ but preserve the topological property of the manifold.
 ![](https://i.imgur.com/HzzK9wk.png)
 - Different type of torus, different type of embedding figure.
