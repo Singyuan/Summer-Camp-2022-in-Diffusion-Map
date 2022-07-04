@@ -139,3 +139,6 @@ _Random Arrangement_
 9. A. Singer, _From graph to manifold Laplacian: The convergence rate_, **(2006)**.
 10. A. Singer and H.-T. Wu, _Vector Diffusion Maps and the Connection Laplacian_, **(2011)**.
 11. Y.-T. Lin, J. Malik and H.-T. Wu, _Wave-shape oscillatory model for nonstationary periodic time series analysis_, **(2021)**.
+
+## Contact me
+Please do not hesitate to contact me (Sing-Yuan Yeh, yeh76385@gmail.com) if you have any question.
