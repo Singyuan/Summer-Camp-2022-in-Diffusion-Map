@@ -23,8 +23,8 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ 
 
 ## Transition Matrix & Difffusion Map
 - Apply diffusion map step by step:
-  1. distance matrix
-  2. affinity matrix $W_{ij}=\exp\left(-\frac{\|x_i-x_j\|^2}{\epsilon^2}\right)$
+  1. distance matrix $d_{ij}=d(x_i, x_j)$, _e.g._ $d_{ij}=\|x_i-x_j\|$
+  2. affinity matrix $W_{ij}=\exp\left(-\frac{{d_{ij}}^2}{\epsilon^2}\right)$
   3. transition matrix $K=D^{-1}W$ where diagonal matrix $D_{ii}=\sum_jW_{ij}$
   4. Eigen-decomposition of $K$ is $U$, _i.e._ $KU=US$ where $S_{ii}=\lambda_i$
   5. dimension reduction by largest $m$ eigenvector $U'=\left[u_2, u_2, \cdots,u_{m+1}\right]$
