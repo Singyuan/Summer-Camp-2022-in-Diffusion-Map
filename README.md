@@ -10,6 +10,7 @@ There are $n$ data, which is $p$-dimensional. The data is stored in $n\times p$ 
 |<a href="#diffusion-map-on-simulation-data">2</a>|Diffusion Map on Simulation Data|[Link](demo/Diffu_Simul.mlx)|<ul><li>Bandwidth</li><li>Diffusion distance</li><li>Mobius strip</li><li>Klein bottle</li></ul>|<ul><li>bandwidth and recover manifold</li><li>ambient/geodesic distance</li></ul>|<ul><li>[Circle](exp/CircleMain.m)</li><li>[Distance](exp/Spring_Distance.m)</li><li>[Torus](exp/TorusMain.m)</li></ul>|
 |<a href="#diffusion-map-on-real-data">3</a>|Diffusion Map on Real Data|[Link](demo/Diffu_Real.mlx)|<ul><li>Fisheriris dataset</li><li>MNIST dataset</li><li>ECG dataset</li><li>EEG dataset</li></ul>|<ul><li>Roseland (SVD)</li><li>self-tune bandwidth</li><li>EEG signal</li><li>wavelet transform & scattering transform</li></ul>|<ul><li>[ECG](exp/ECG_Visualization.m)</li><li>[MNIST](exp/MNIST_Visulization.m)</li></ul>|
 |<a href="#clustering--classification">4</a>|Clustering & Classification|[Link](demo/clustering_classification.mlx)|<ul><li>Clustering (k-means)</li><li>Classification (SVM)</li><li>metric</li><li>K-fold</li></ul>|<ul><li>Leave one subject out</li><li>metric</li></ul>|<ul><li>[EEG](exp/EEG_classification.m)</li><li>[K-Fold](exp/Iris_KFold.m)</li></ul>|
+|<a href="#dynamical-diffusion-map">5</a>|Dynamical Diffusion Map|[Link](https://github.com/Singyuan/Summer-Camp-2022-in-Diffusion-Map/blob/master/demo/DDMap.mlx)|<ul><li>RRI</li><li>Wave shape</li><li>Spectrum</li></ul>||<ul><li>[RRI](https://github.com/Singyuan/Summer-Camp-2022-in-Diffusion-Map/blob/master/exp/RRIFlow.m)</li><li>[wave shape](https://github.com/Singyuan/Summer-Camp-2022-in-Diffusion-Map/blob/master/exp/DDMapMain.m)</li></ul>|
 
 ## Eigen Decomposition & SVD
 - How to apply eigen-decomposition in MATLAB. 
@@ -93,6 +94,17 @@ $$\sum_{j=1}^{n} L_{i j} f\left(x_{j}\right)=\frac{m_2}{2d}\Delta f\left(x_{i}\r
 
   - Evaluation on k-folds cross validation.
 ![](https://i.imgur.com/BUxLuNr.png)
+
+## Dynamical Diffusion Map
+- Please refer to [Lin, Malik and Wu (2019)](https://arxiv.org/abs/1907.00502) for more detail of dynamical diffusion map.
+- There are three ways to apply feature extraction
+  - **Reciprocal of RRI** (instantaneous frequency). Please refer to [Li, Frasch and Wu (2017)](https://arxiv.org/abs/1702.02025)
+  ![](https://i.imgur.com/ttvx7Su.png)
+
+  - **Wave shape**. Please refer to [Lin, Malik and Wu (2019)](https://arxiv.org/abs/1907.00502).
+  ![](https://i.imgur.com/SPveuEl.png)
+
+  - **Spectrum**. Here, we use scattering transformation to extract feature. Please refer to [Anden and Mallat (2013)](https://arxiv.org/abs/1304.6763) for more detail of scattering transformation.
 
 ## Appendix for methodology
 There are many method to dimension reduction. Diffusion map is just one of them. Hence, you could compare diffusion map and other methods. Feel free to use the data in my folder `data`.
